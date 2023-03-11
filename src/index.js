@@ -146,7 +146,26 @@ function diemTB() {
   });
   return sum / count;
 }
-function sapXepTongDiem() {}
+function sapXepTongDiem() {
+  let count = students.length;
+  let i = 0;
+  for (i; i < count - 1; i++) {
+    let min = i;
+    let luu;
+    for (let j = i + 1; j < count; j++) {
+      if (students[min].sum > students[j].sum) {
+        min = j;
+      }
+    }
+    if (min != i) {
+      luu = students[min];
+      students[min] = students[i];
+      students[i] = luu;
+    }
+  }
+  return students;
+}
+
 function menu() {
   let todo = true;
   do {
@@ -192,6 +211,8 @@ function menu() {
         console.log(TB);
         break;
       case 9:
+        const sapxep = sapXepTongDiem();
+        console.log(sapxep);
         break;
       case 10:
         console.log("Goodbye!");
