@@ -134,13 +134,19 @@ function diemTB() {
   let count = students.length;
   let i = 0;
   let tongdiem = 0;
+  let sumall = [];
+  let sum = 0;
   for (i; i < count; i++) {
     let value = students[i];
     tongdiem = value.toan + value.hoa + value.ly;
+    sumall.push(tongdiem);
   }
-  console.log(tongdiem);
-  return console.log(tongdiem / count);
+  sumall.forEach((value) => {
+    sum = sum + value;
+  });
+  return sum / count;
 }
+function sapXepTongDiem() {}
 function menu() {
   let todo = true;
   do {
@@ -182,7 +188,8 @@ function menu() {
         console.log(sum);
         break;
       case 8:
-        diemTB();
+        const TB = diemTB();
+        console.log(TB);
         break;
       case 9:
         break;
