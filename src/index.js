@@ -118,11 +118,28 @@ function tongDiem() {
   let count = students.length;
   let i = 0;
   let tongdiem = 0;
+  let sumall = [];
+  let sum = 0;
+  for (i; i < count; i++) {
+    let value = students[i];
+    tongdiem = value.toan + value.hoa + value.ly;
+    sumall.push(tongdiem);
+  }
+  sumall.forEach((value) => {
+    sum = sum + value;
+  });
+  return sum;
+}
+function diemTB() {
+  let count = students.length;
+  let i = 0;
+  let tongdiem = 0;
   for (i; i < count; i++) {
     let value = students[i];
     tongdiem = value.toan + value.hoa + value.ly;
   }
-  return console.log(tongdiem);
+  console.log(tongdiem);
+  return console.log(tongdiem / count);
 }
 function menu() {
   let todo = true;
@@ -161,9 +178,11 @@ function menu() {
         themThuocTinh();
         break;
       case 7:
-        tongDiem();
+        const sum = tongDiem();
+        console.log(sum);
         break;
       case 8:
+        diemTB();
         break;
       case 9:
         break;
