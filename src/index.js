@@ -50,6 +50,14 @@ const students = [
   },
 ];
 
+function hienthi(a) {
+  for (let el of a) {
+    for (let key in el) {
+      console.log(key + ":" + el[key]);
+    }
+    console.log("=======================");
+  }
+}
 function kiemTraTrenTB() {
   let count = students.length;
   let i = 0;
@@ -82,15 +90,17 @@ function locLoaiGioi() {
       sv_gioi.push(value);
     }
   }
-  return console.log(sv_gioi);
+  return hienthi(sv_gioi);
 }
 function motSVgioi() {
   let count = students.length;
   let i = 0;
+  let arr = [];
   for (i; i < count; i++) {
     let value = students[i];
     if (value.toan >= 8 && value.ly >= 8 && value.hoa >= 8) {
-      return console.log(value);
+      arr.push(value);
+      return hienthi(arr);
     }
   }
 }
@@ -103,7 +113,7 @@ function cong1diemToan() {
       value.toan = value.toan + 1;
     }
   }
-  return console.log(students);
+  return hienthi(students);
 }
 function themThuocTinh() {
   let count = students.length;
@@ -112,7 +122,7 @@ function themThuocTinh() {
     let value = students[i];
     value.sum = value.toan + value.ly + value.hoa;
   }
-  return console.log(students);
+  return hienthi(students);
 }
 function tongDiem() {
   let count = students.length;
@@ -208,7 +218,8 @@ function menu() {
         break;
       case 8:
         const TB = diemTB();
-        console.log(TB);
+        console.log(Math.round(TB * 100) / 100);
+        // numb = numb.toFixed(2);
         break;
       case 9:
         const sapxep = sapXepTongDiem();
@@ -222,3 +233,5 @@ function menu() {
   } while (todo);
 }
 menu();
+
+// hiển thị kết quả trong quá trình chọn menu
